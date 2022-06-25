@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Medicine</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <!-- <div id="logo">
+        <img src="img/logo.png" alt="REAL-TIME HEALTH SUPERVISION CONTROL" />
+      </div> -->
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+     <img src="./uploads/<%= pImage%>" alt="profile img">
+    </nav>
+
+    <div>
+      <h1 id="med3">Medicine information</h1>
+    </div>
+
+    <div id="md1">
+      <div id="md2">
+        <% result.forEach(function(name){ %>
+          <h1><%= name.name %></h1><br><br>
+          <h2>Drugname</h2>
+          <p><%= name.drugname %></p><br>
+          <h2>Description</h2>
+          <p><%= name.description %></p><br>
+          <h2>Alergies</h2>
+          <p><%= name.alergies %></p><br>
+          <h2>Pediatric</h2>
+          <p><%= name.pediatric %></p><br>
+          <h2>geriatric</h2>
+          <p><%= name.geriatric %></p><br>
+          <h2>breastfeeding</h2>
+          <p><%= name.breastfeeding %></p><br>
+          <h2>Drugname</h2>
+          <p><%= name.druginteraction %></p><br>
+          <h2>Othe interaction</h2>
+          <p><%= name.otherinteraction %></p><br>
+          <h2>Other medicine problem</h2>
+          <p><%= name.othermedicineproblem %></p><br>
+          <h2>proper use</h2>
+          <p><%= name.properuse %></p><br>
+          <h2>Dosing</h2>
+          <p><%= name.dosing %></p><br>
+          <h2>Misse Dose</h2>
+          <p><%= name.misseddose %></p><br>
+          <h2>Storage</h2>
+          <p><%= name.storage %></p><br>
+          <h2>Precaution</h2>
+          <p><%= name.precaution %></p><br>
+          <h2>Side Effect</h2>
+          <p><%= name.sideeffect %></p><br>
+        </tr>
+        <% })%>
+      </div>
+    </div>
+  </body>
+</html>

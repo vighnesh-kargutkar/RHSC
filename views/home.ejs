@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/slid.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Realtime Health Supervison Contro</title>
+    <style>
+      .addReadMore.showlesscontent .SecSec,
+      .addReadMore.showlesscontent .readLess {
+        display: none;
+      }
+
+      .addReadMore.showmorecontent .readMore {
+        display: none;
+      }
+
+      .addReadMore .readMore,
+      .addReadMore .readLess {
+        font-weight: bold;
+        margin-left: 2px;
+        color: blue;
+        cursor: pointer;
+      }
+
+      .addReadMoreWrapTxt.showmorecontent .SecSec,
+      .addReadMoreWrapTxt.showmorecontent .readLess {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul id="nav1">
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="tophomeintro">
+      <div class="intro">
+        <h1>Now Consult Doctor</h1>
+        <h1>from home</h1>
+        <p>A healthy life should be a habit, not a goal to achieve</p>
+        <form action="/consult">
+          <button>
+            <h3>Book Appointment now</h3>
+          </button>
+        </form>
+        <!-- <p>A healthy life is best kind of life</p> -->
+      </div>
+    </div>
+    <!-- <div>
+      <h1 id="med3">Welcome to RHSC</h1>
+    </div> -->
+
+    <div id="sld">
+      <div class="slider">
+        <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1" />
+          <input type="radio" name="radio-btn" id="radio2" />
+          <input type="radio" name="radio-btn" id="radio3" />
+          <input type="radio" name="radio-btn" id="radio4" />
+          <div class="slide first">
+            <img src="images/sl4.jpg" alt="" />
+          </div>
+          <div class="slide">
+            <img src="images/sl2.png" alt="" />
+          </div>
+          <div class="slide">
+            <img src="images/sl3.jpg" alt="" />
+          </div>
+          <div class="slide">
+            <img src="images/sl1.jpg   " alt="" />
+          </div>
+        </div>
+        <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+        </div>
+      </div>
+    </div>
+    <div class="head">
+      <h1>Why do we need to consult a doctor online ?</h1>
+    </div>
+    <div class="info">
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          As we know this is the age of the internet and everything is becoming
+          digital and getting connected to the internet to make our life easy.
+          Nowadays we use the internet for everything from smart mobile phones
+          to smart cars.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          Most people have a busy schedule and in their busy schedule, they
+          don’t pay attention to their health and ignore it. This is the main
+          reason this website will help people to consult a doctor online with
+          easy and fastest way of consulting doctor rather than standing in long
+          queues and having risk to spread disease.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          Rather than this, the Patient can find information on any diseases and
+          medicines with a brief description. A patient can find various types
+          of doctors like gynecologists, physicians, dermatologists,
+          psychiatrists, pediatricians, and Stomachs. a patient can even find a
+          nearby hospital for emergency cases.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          Many Doctors can use this website and provide their medical service,
+          which will help to reach many people who are in need. The patient can
+          even calculate their BMI. A doctor can even upload information about
+          the new disease which will help the patient to know about it. By using
+          this website, it will easier to consult a doctor in a faster and safer
+          way without spreading any disease. Life is becoming very busy to urge
+          medical appointments face to face and to take care of proper health
+          care.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          we all know that we generally don't get appointments with doctors all
+          the time. once you try offline, you would possibly await an extended
+          time. Now, once you do this online, the story is different. once you
+          prefer digital healthcare platforms and doctors give preference to
+          those that use these platforms. It helps you get nearby doctors
+          together with your online appointments.The system of online
+          appointments is straightforward and less hectic.The doctors respond
+          also very quickly online. Offline appointments, on the opposite hand,
+          don't have this technique of quick response.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          Due to pandemics health care has been a major issue and the most
+          important topic in this pandemic. In which people are finding it
+          difficult to know about the various diseases, new viruses, and
+          symptoms of it. we have created this website for people to know about
+          various diseases and to cure them through this website in a secure
+          way.
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent">
+          To improve better health care services with safety and security at the
+          best level, we are providing consultation in terms of booking an
+          online appointment, live chat, or video call system and ordering
+          medicine from E-prescription provided by the doctor. In a critical
+          situation of patients, the system enables you to find nearby hospitals
+          according to your current live location
+        </p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent"></p>
+      </div>
+      <div class="info1">
+        <p class="addReadMore showlesscontent"></p>
+      </div>
+      <!-- <a href="#" class="show_hide" data-content="toggle-text">Read More</a> -->
+      <script>
+        function AddReadMore() {
+          var carLmt = 140;
+          var readMoreTxt = " ... Read More";
+          var readLessTxt = " Read Less";
+          $(".addReadMore").each(function () {
+            if ($(this).find(".firstSec").length) return;
+            var allstr = $(this).text();
+            if (allstr.length > carLmt) {
+              var firstSet = allstr.substring(0, carLmt);
+              var secdHalf = allstr.substring(carLmt, allstr.length);
+              var strtoadd =
+                firstSet +
+                "<span class='SecSec'>" +
+                secdHalf +
+                "</span><span class='readMore'  title='Click to Show More'>" +
+                readMoreTxt +
+                "</span><span class='readLess' title='Click to Show Less'>" +
+                readLessTxt +
+                "</span>";
+              $(this).html(strtoadd);
+            }
+          });
+          $(document).on("click", ".readMore,.readLess", function () {
+            $(this)
+              .closest(".addReadMore")
+              .toggleClass("showlesscontent showmorecontent");
+          });
+        }
+        $(function () {
+          AddReadMore();
+        });
+      </script>
+    </div>
+    <div id="cn">
+      <div class="cn12">
+        <h3>Steps to Consult a Doctor</h3>
+      </div>
+      <section class="cn1" id="cn1">
+        <!-- <div class="aaa">
+        <img src="img/logo.png" alt="" />
+      </div> -->
+        <div class="cn11">
+          <h3>1. Select the type of Doctor you want to consult</h3>
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="cn11">
+          <h3>2. Schedule your appointment</h3>
+        </div>
+        <div class="cn11">
+          <h3>3. Join your appointment at Schedule time</h3>
+          <p>Use Audio,Video & Chat</p>
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="cn11">
+          <h3>4. share everything related to health with the doctor</h3>
+        </div>
+        <div class="cn11">
+          <h3>5. Get an E-prescription from Doctor</h3>
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="aaa">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="cn11">
+          <h3>6. Make a payment</h3>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

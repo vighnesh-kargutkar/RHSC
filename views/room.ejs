@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/ac73c8797e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"
+    ></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="css/video.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+    <title>Document</title>
+    <script>
+      const ROOM_ID = "<%= roomId %>";
+    </script>
+  </head>
+  <body>
+    <div class="video-container">
+      <header class="video-header">
+        <h1>Real-time Health Supervision control</h1>
+      </header>
+      <div class="videos__group">
+        <div id="video-grid"></div>
+      </div>
+      <div class="options">
+        <div class="options__left">
+          <div id="stopVideo" class="options__button">
+            <i class="fa fa-video-camera"></i>
+          </div>
+          <div id="muteButton" class="options__button">
+            <i class="fa fa-microphone"></i>
+          </div>
+          <!-- <div id="leavebtn" class="options__button">
+          </div> -->
+          </button>
+          <form action="/thankyou" method="get">
+            <button onclick="close()" id="leavebtn" class="options__button">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+          </form>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function close() {
+        // Open the new window
+        // with the URL replacing the
+        // current page using the
+        // _self value
+        let new_window = open(location, "_self");
+
+        // Close this window
+        window.close();
+
+        return false;
+      }
+    </script>
+  </body>
+</html>

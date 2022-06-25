@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Consult</title>
+  </head>
+  <body onload="load()">
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="docter">
+      <% result.forEach(function(dat){ %>
+      <div class="doccard">
+        <div class="docimg">
+          <img src="./uploads/<%= dat.image %>" alt="" />
+        </div>
+        <div class="docdata">
+          <h2 name="room">Dr.<%= dat.firstname %></h2>
+          <p><%= dat.doctertype %></p>
+          <p><%= dat.qualification %></p>
+          <p>Experience <%= dat.experience %> years</p>
+          <p>Fees : <%= dat.fees %></p>
+          <!-- <h3>Book Appointment</h3> -->
+          <form action="/bookapp" method="post">
+            <input
+              type="hidden"
+              name="doctertype"
+              value="<%= dat.doctertype %>"
+            />
+            <input type="hidden" name="email" value="<%= dat.email %>" />
+            <input
+              type="hidden"
+              name="firstname"
+              value="<%= dat.firstname %>"
+            />
+            <button type="submit" class="consultbtn" id="submit">
+              Book Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1" />
+        <title>Admin Dashboard</title>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fontawesome.com/icons/money-check?s=solid">
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/admindash.css">
+        <script src="https://kit.fontawesome.com/ac73c8797e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+             <div class="sidebar-admin">
+                 <h1> <span class="la la-user"></span><span>Admin</span></h1>      
+             </div>
+             <div class="sidebar-menu">
+                 <ul>
+                     <li>
+                         <a href="/admindash" ><span class="la la-dashboard"></span>
+                            <span>Dashboard</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="/admindocter" ><span class="la la-medkit"></span>
+                           <span>Doctor</span>
+                       </a>
+                    </li>                      
+                    <li>
+                        <a href="/adminpatient" ><span class="la la-users"></span>
+                           <span>Patient</span>
+                       </a>
+                    </li>
+                    <li>
+                        <a href="/adminappoiment" ><span class="la la-calendar"></span>
+                           <span>Appointment</span>
+                       </a>
+                    </li>
+                    <li>
+                        <a href="/adminPayment" class="active"><span class="la la-money"></span>
+                           <span>Payment</span>
+                       </a>
+                    </li>
+                    <li>
+                        <a href="/adminadddocter" ><span class="fa-solid fa-plus"></span>
+                           <span>Add Doctor</span>
+                       </a>
+                    </li>
+                 </ul>
+                 </div>
+                 </div>
+                </div>
+             <div class="main-content">
+                 <header>
+                     <h1>
+                         <label for="nav-toggle">
+                             <span class="la la-bars"></span>
+                         </label>
+                         Real-time Health Care</br>
+                        
+                    </h1>
+                         <!-- <div class="user-wrapper">
+                             <img src="/public/images/admin.png" width="30px" height="30px" alt="">
+                         <div>
+                             <h4>Vighnesh</h4>
+                             <small> Admin</small>
+                         </div>
+                         </div> -->
+                         
+            
+                </header>
+                <main>
+                  <h3>Payment Updates</h3>
+                  <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h3>Payment via card <%= DC%></h3>
+                            <span class="fa fa-credit-card"></span>
+                            <!-- <span class="fa fa-ellipsis-v"></span> -->
+                        </div>
+                    </div>
+                    <!-- <div class="card-single">
+                        <div>
+                          <h3>
+                              Payment via Banks
+                              
+                            </h3>
+                            <h3>Rs.2000</h3>
+                            <span class="la la-bank"></span>
+                            <span class="fa fa-ellipsis-v"></span>
+                        </div>
+                    </div> -->
+                    <div class="card-single">
+                        <div>
+                            <h3>Payment via Net Banking <%= NB%>
+                            </h3>
+                                  <span class="la la-rupee"></span>
+                            <!-- <span class="fa fa-ellipsis-v"></span> -->
+                        </div>
+                    </div>
+                    <!-- <div class="card-single">
+                        <div>
+                            <h3>Payment via UPI ID
+                            </h3>
+                            <h3>Rs.4000</h3>
+                            <span class="fa fa-money"></span>
+                            <span class="fa fa-ellipsis-v"></span>
+                        </div>
+                    </div> -->
+                </div>
+                
+                <div class="head">
+                    <div class="head-title">
+                        <h2>Payments History</h2>
+                    </div>
+                </div>
+                <div class="tableappdiv">
+                                    <table class="apptable">
+                                        <tr>
+                                                 <% if(typeof head != 'undefined') { %>
+                                                    <th>
+                                                        <%= head.PName  %>                    
+                                                    </th>
+                                                 <th>
+                                                     <%= head.Dname  %>                    
+                                                    </th>
+                                                    <th>
+                                                        <%= head.Date  %>                    
+                                                    </th>
+                                                 <th>
+                                                     <%= head.Time  %>                    
+                                                 </th>
+                                                  <th>
+                                                     <%= head.PAYMENTMODE  %>                    
+                                                 </th>
+                                                 <th>
+                                                     <%= head.Fees  %>                    
+                                                 </th>
+                                                <% } %>
+                                             </tr>   
+                                            <% if(typeof appointmentss != 'undefined') { %>
+                                            <% appointmentss.forEach(function(error) { %>
+                                             <tr>
+                                                 <td>
+                                                     <%= error.pfname  %>                    
+                                                 </td>
+                                                 <td>
+                                                     <%= error.docfname  %>                    
+                                                 </td>
+                                                 <td>
+                                                     <%= error.date  %>                    
+                                                 </td>
+                                                 <td>
+                                                     <%= error.time  %>                    
+                                                 </td>
+                                                 <td>
+                                                     <%= error.PAYMENTMODE  %>                    
+                                                 </td>
+                                                 <td>
+                                                     <%= error.fees  %>                    
+                                                 </td>
+                                                <% }) %>
+                                                <% } %>
+                                             </tr>   
+                                    </table>
+                    </div>
+            <!-- </br>
+                <div class="payment">
+                    <div class="payment-history">
+                        <ui class="history">
+                            <li class="topic">Date</li>
+                            <li><a href="#">01-01-2022</a></li>
+                            <li><a href="#">16-01-2022</a></li>
+                            <li><a href="#">17-01-2022</a></li>
+                            <li><a href="#">10-02-2022</a></li>
+                            <li><a href="#">15-02-2022</a></li>
+                            <li><a href="#">19-02-2022</a></li>
+                        </ui>
+                        <ui class="history">
+                            <li class="topic">Name</li>
+                            <li><a href="#">Sejal Gupta</a></li>
+                            <li><a href="#">Vighnesh Kargutkar</a></li>
+                            <li><a href="#">Dev Pandey</a></li>
+                            <li><a href="#">Vipin yadav</a></li>
+                            <li><a href="#">Jyoti Gupta</a></li>
+                            <li><a href="#">Shivangi Mishra</a></li>
+                        </ui>
+                        <ui class="history">
+                            <li class="topic">Payment Method</li>
+                            <li><a href="#">Bank</a></li>
+                            <li><a href="#">Paytm</a></li>
+                            <li><a href="#">card</a></li>
+                            <li><a href="#">UPI ID</a></li>
+                            <li><a href="#">Paytm</a></li>
+                            <li><a href="#">Paytm</a></li>
+                        </ui>
+                        <ui class="history">
+                            <li class="topic">Payment Rs.</li>
+                            <li><a href="#">Rs.200</a></li>
+                            <li><a href="#">Rs.500</a></li>
+                            <li><a href="#">Rs.100</Rs></a></li>
+                            <li><a href="#">Rs.300</a></li>
+                            <li><a href="#">Rs.100</a></li>
+                            <li><a href="#">Rs.1000</a></li>
+                        </ui>
+                    </div>
+                </div>         
+                </div>   -->
+            </main>
+        
+        
+            </div>
+    </body>
+</html>

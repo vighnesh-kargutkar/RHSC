@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <script>
+      function load() {
+        text = "Please login to Continue ";
+        if (confirm(text) == true) {
+          text = "You pressed OK!";
+        } else {
+          text = "You cancelled!";
+        }
+      }
+    </script>
+    <body onload="load()">
+      <div class="loginbox">
+        <img src="images/avatar.jpg" class="avatar" />
+        <h1>Login Here</h1>
+        <form action="/login" method="post">
+          <p>Type</p>
+          <select id="type" name="type">
+            <option></option>
+            <option type="Patient">Patient</option>
+            <option typr="Docter">Docter</option>
+          </select>
+          <p>Email</p>
+          <input type="email" name="email" placeholder="Enter Username" />
+          <p>Phone no</p>
+          <input type="number" name="phone" placeholder="Enter User phone no" />
+          <p>Password</p>
+          <input type="password" name="password" placeholder="Enter Password" />
+          <input type="submit" name="" value="Login" />
+          <!-- <a href="#"> Forget Password?</a></br>
+            <a href="#"> Don't have an account?</a></br> -->
+          <a href="/register">
+            <input class="button" value="register" />
+          </a>
+        </form>
+      </div>
+    </body>
+  </head>
+</html>

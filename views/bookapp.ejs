@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="bookpage.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <title>Consult</title>
+  </head>
+  <body onload="date()">
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="bookdoc">
+      <form action="/confirmapp" method="post" target="_blank">
+        <% result.forEach(function(dat){ %>
+        <div class="bookdoccard">
+          <div class="bookdocimg">
+            <img src="./uploads/<%= dat.image %>" alt="" />
+          </div>
+          <div class="bookdocdata">
+            <h1 name="">Dr.<%= dat.firstname %></h1>
+            <input type="hidden" name="docfname" value="<%= dat.firstname %>" />
+            <input type="hidden" name="doclname" value="<%= dat.lastname %>" />
+            <input type="hidden" name="docemail" value="<%= dat.email %>" />
+            <input type="hidden" name="fees" value="<%= dat.fees %>" />
+            <input
+              type="hidden"
+              name="doctertype"
+              value="<%= dat.doctertype %>"
+            />
+            <p>Specialist : <%= dat.doctertype %></p>
+            <p>Qualification : <%= dat.qualification %></p>
+            <p>Experience : <%= dat.experience %> years</p>
+            <p>Fees : <%= dat.fees %></p>
+            <p>Total Patient : <%= dat.total %></p>
+            <p>Total like : <%= dat.like %></p>
+
+            <input
+              type="hidden"
+              name="username"
+              id="username"
+              value="<%= pfname%>"
+            />
+            <input
+              type="hidden"
+              name="room"
+              id="room"
+              value="Dr.<%= dat.firstname %>"
+            />
+            <!-- <button type="submit" class="consultbtn" id="submit">
+              Confirm
+            </button> -->
+            <br />
+            <br />
+          </div>
+          <div class="bkdate">
+            <div class="bkdate2">
+              <input
+                class="form-control"
+                id="abc"
+                name="date"
+                type="date"
+                required
+              />
+              <h3 onclick="myFunction()">click here to select time</h3>
+              <!-- <input hidden type="text" id="demo" name="date" /> -->
+              <p id="demo" name="date"></p>
+
+              <input type="time" name="timee" id="t" style="display: none" />
+              <div class="bkdate3">
+                <input
+                  type="button"
+                  name="time"
+                  id="b1"
+                  onclick="val(this)"
+                  class="time"
+                  value="10:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b2"
+                  onclick="val(this)"
+                  class="time"
+                  value="10:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b3"
+                  onclick="val(this)"
+                  class="time"
+                  value="11:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b4"
+                  onclick="val(this)"
+                  class="time"
+                  value="11:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b5"
+                  onclick="val(this)"
+                  class="time"
+                  value="12:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b6"
+                  onclick="val(this)"
+                  class="time"
+                  value="12:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b7"
+                  onclick="val(this)"
+                  class="time"
+                  value="13:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b8"
+                  onclick="val(this)"
+                  class="time"
+                  value="13:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b9"
+                  onclick="val(this)"
+                  class="time"
+                  value="14:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b10"
+                  onclick="val(this)"
+                  class="time"
+                  value="14:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b11"
+                  onclick="val(this)"
+                  class="time"
+                  value="15:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b12"
+                  onclick="val(this)"
+                  class="time"
+                  value="15:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b13"
+                  onclick="val(this)"
+                  class="time"
+                  value="16:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b14"
+                  onclick="val(this)"
+                  class="time"
+                  value="16:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b15"
+                  onclick="val(this)"
+                  class="time"
+                  value="17:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b16"
+                  onclick="val(this)"
+                  class="time"
+                  value="17:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b17"
+                  onclick="val(this)"
+                  class="time"
+                  value="18:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b18"
+                  onclick="val(this)"
+                  class="time"
+                  value="18:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b19"
+                  onclick="val(this)"
+                  class="time"
+                  value="19:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b20"
+                  onclick="val(this)"
+                  class="time"
+                  value="19:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b21"
+                  onclick="val(this)"
+                  class="time"
+                  value="20:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b22"
+                  onclick="val(this)"
+                  class="time"
+                  value="20:30"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b23"
+                  onclick="val(this)"
+                  class="time"
+                  value="21:00"
+                />
+                <input
+                  type="button"
+                  name="time"
+                  id="b24"
+                  onclick="val(this)"
+                  class="time"
+                  value="22:30"
+                />
+              </div>
+              <h3 class="time">Time =</h3>
+              <h3 id="d" name="timee"></h3>
+              <button type="submit">
+                <h3>Book Appointment</h3>
+              </button>
+
+              <script>
+                // function val(e) {
+                //   var time = document.getElementById(e.id).value;
+                //   console.log(time);
+                // }
+              </script>
+            </div>
+          </div>
+        </div>
+        <% })%>
+      </form>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"
+    ></script>
+    <script>
+      $(function () {
+        var today = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        var weak = new Date(new Date().getTime() + 144 * 60 * 60 * 1000);
+
+        var month = ("0" + (today.getMonth() + 1)).slice(-2);
+        var month7 = ("0" + (weak.getMonth() + 1)).slice(-2);
+        var day = ("0" + today.getDate()).slice(-2);
+        var day7 = ("0" + weak.getDate()).slice(-2);
+        var year = today.getFullYear();
+        var year7 = weak.getFullYear();
+        var date = year + "-" + month + "-" + day;
+        var date7 = year7 + "-" + month7 + "-" + day7;
+
+        $("[id*=abc]").attr("min", date);
+        $("[id*=abc]").attr("max", date7);
+      });
+      var x = document.getElementById("abc").value;
+    </script>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("abc").value;
+
+        //day 2
+        var two = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        var day2 =
+          two.getFullYear() +
+          "-" +
+          ("0" + (two.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + two.getDate()).slice(-2);
+
+        //day 3
+        var three = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+        var day3 =
+          three.getFullYear() +
+          "-" +
+          ("0" + (three.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + three.getDate()).slice(-2);
+
+        //day 4
+        var four = new Date(new Date().getTime() + 72 * 60 * 60 * 1000);
+        var day4 =
+          four.getFullYear() +
+          "-" +
+          ("0" + (four.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + four.getDate()).slice(-2);
+
+        //day 5
+        var five = new Date(new Date().getTime() + 96 * 60 * 60 * 1000);
+        var day5 =
+          five.getFullYear() +
+          "-" +
+          ("0" + (five.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + five.getDate()).slice(-2);
+
+        //day6
+        var six = new Date(new Date().getTime() + 120 * 60 * 60 * 1000);
+        var day6 =
+          six.getFullYear() +
+          "-" +
+          ("0" + (six.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + six.getDate()).slice(-2);
+
+        //day 7
+        var seven = new Date(new Date().getTime() + 144 * 60 * 60 * 1000);
+        var day7 =
+          seven.getFullYear() +
+          "-" +
+          ("0" + (seven.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + seven.getDate()).slice(-2);
+
+        //loop to check date and and display time slots
+        // if (x == day1) {
+        //   var time = one.getHours() + ":" + one.getMinutes();
+        //   var x = document.getElementsByClassName("time");
+        //   for (var index = 0; index < x.length; index++) {
+        //     if (x[index].innerHTML > time) {
+        //       console.log("true");
+        //       x[index].style.display = "block";
+        //     } else {
+        //       console.log("false");
+        //       x[index].style.display = "none";
+        //     }
+        //   }
+        // } else
+        if (x == day2) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        } else if (x == day3) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        } else if (x == day4) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        } else if (x == day5) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        } else if (x == day6) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        } else if (x == day7) {
+          var x = document.getElementsByClassName("time");
+          for (var index = 0; index < x.length; index++) {
+            x[index].style.display = "block";
+            console.log("teue");
+          }
+        }
+      }
+      function date() {
+        var x = document.getElementsByClassName("time");
+        for (var index = 0; index < x.length; index++) {
+          x[index].style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

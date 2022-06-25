@@ -1,0 +1,52 @@
+<% record.forEach(function(data){ %>
+          <th><%= data %></th>
+        </tr>
+        <% })%>
+
+19.0781968653, 19.078196865
+
+        const lattitude = req.body.lats;
+  const longitude = req.body.longs;
+  const result = marker
+    .find(
+      {
+        lat: { $lte: lattitude },
+        lng: { $lte: longitude },
+        lat: { $gte: lattitude },
+        lng: { $gte: longitude },
+      },
+      { name: 1, address: 1, _id: 0 },
+      function (err, data) {
+        res.render("nearbyss", { record: data });
+      }
+    )
+    .limit(1);
+  const result1 = await Marker.findOne({});
+  const ab = result1.name;
+  console.log(ab);
+  const a = JSON.stringify(result1);
+  fs.writeFileSync("location.txt", a);
+  // console.log(result1);
+  const data = fs.readFileSync("location.txt");
+
+  const usermail = await Register.findOne({});
+  console.log(usermail.firstname);\<form action="/chatdoc">
+      <input type="hidden" name="username" id="username" value="<%= data%>" />
+
+      <input type="hidden" name="room" id="room" value="Dr.<%= data %>" />
+      <button type="submit" class="consultbtn" id="submit">Consult</button>
+    </form>
+
+
+
+
+        amount: req.cookies.pfees,
+    customerId: req.cookies.pfname,
+    customerEmail: req.cookies.pemail,
+    customerPhone: req.cookies.pphone,
+    var PaytmConfig = {
+  mid: "MCCIqQ88787994562004",
+  key: "bHAcLDP6r%BbvETS",
+  website: "WEBSTAGING",
+};
+module.exports.PaytmConfig = PaytmConfig;

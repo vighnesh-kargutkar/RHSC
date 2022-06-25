@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link href="css/rgform.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      function load() {
+        text = "Account not found kindly register";
+        if (confirm(text) == true) {
+          text = "You pressed OK!";
+        } else {
+          text = "You canceled!";
+        }
+      }
+    </script>
+  </head>
+  <body onload="load()">
+    <div class="wrapper">
+      <h2>Registration</h2>
+      <div class="form-conteniar">
+        <form action="/register" method="post">
+          <div class="input-name">
+            <i class="fas fa-user-alt"></i>
+            <input
+              type="text"
+              placeholder="First Name"
+              name="firstname"
+              class="name"
+            />
+            <span>
+              <i class="fas fa-user-alt"></i>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="lastname"
+                class="name"
+              />
+            </span>
+          </div>
+          <div class="input-name">
+            <i class="fa fa-envelope email"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              name="email"
+              class="text-name"
+            />
+          </div>
+          <div class="input-name">
+            <i class="fa fa-envelope email"></i>
+            <input
+              type="number"
+              placeholder="Phone no"
+              required
+              name="phone"
+              class="text-name"
+            />
+          </div>
+          <div class="input-name">
+            <i class="fa fa-lock lock"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              name="password"
+              class="text-name"
+            />
+          </div>
+          <div class="input-name">
+            <i class="fa fa-lock lock"></i>
+            <input
+              type="password"
+              placeholder="Re-type-Password"
+              required
+              name="confirmpassword"
+              class="text-name"
+            />
+          </div>
+          <div class="input-name">
+            <input
+              type="radio"
+              name="radiogroup1"
+              id="ravi"
+              class="radio-button"
+            />
+            <label for="ravi" class="gender">Male</label>
+            <input
+              type="radio"
+              name="radiogroup1"
+              id="ravi1"
+              class="radio-button"
+            />
+            <label for="ravi1" class="gender">Female</label>
+          </div>
+          <div class="input-name">
+            <input type="checkbox" id="cb" class="check-button" />
+            <label for="cb1" class="check">
+              I agree with terms and conditions</label
+            >
+          </div>
+          <div class="input-name">
+            <input class="button" type="submit" value="Register" />
+          </div>
+          <div class="input-name">
+            <input class="button" type="submit" value="login here" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

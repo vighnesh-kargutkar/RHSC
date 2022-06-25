@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <title>Medicine</title>
+    <script>
+      $(function () {
+        $("#sb1").autocomplete({
+          source: function (req, res) {
+            $.ajax({
+              url: "/autocompletemed",
+              dataType: "jsonp",
+              type: "GET",
+              data: req,
+              success: function (data) {
+                res(data);
+              },
+              error: function (err) {
+                console.log(err.status);
+              },
+            });
+          },
+          minLength: 1,
+          select: function (event, ui) {
+            if (ui.item) {
+              $("#sb1").text(ui.item.label);
+            }
+          },
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+
+    <div>
+      <h1 id="med3">Medicine information</h1>
+    </div>
+
+    <div id="sbc">
+      <div id="sb">
+        <form action="/medicine" method="post">
+          <input
+            type="search"
+            name="names"
+            id="sb1"
+            placeholder=" eg. Acetaminophen"
+          />
+          <button id="sb2">Seacrch</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

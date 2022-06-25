@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/dochome.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Doctor Profile</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/dochome">Home</a></li>
+        <li class="item"><a href="/docapp">Appointment</a></li>
+        <li class="item">
+          <a href="/docprofile">Dr.<%= DocterFirstname %></a>
+        </li>
+      </ul>
+      <img src="./uploads/<%= DocterImage%>" alt="profile img" />
+    </nav>
+    <div class="docedpro">
+      <h2>View profile</h2>
+      <table class="apptable">
+        <tr>
+          <td><span>Profile Image</span></td>
+          <td>
+            <img src="./uploads/<%= DocterImage%>" alt="profile img" /><br />
+          </td>
+        </tr>
+        <tr>
+          <td><span>First Name</span></td>
+          <td><span><%= DocterFirstname %></span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Last Name</span></td>
+          <td><span> <%= DocterLastname %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Email</span></td>
+          <td><span> <%= DocterEmail %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Specialist</span></td>
+          <td><span> <%= DocterType %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Qualification</span></td>
+          <td><span> <%= DocterQualification %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Experience</span></td>
+          <td><span> <%= DocterExperience %> Years</span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Fees</span></td>
+          <td><span> <%= DocterFees %> Ruppes</span><br /></td>
+        </tr>
+      </table>
+      <h2>Update Profile</h2>
+      <table class="apptable">
+        <tr>
+          <form action="/docprofilefees" method="post">
+            <td><span>Fees</span></td>
+            <td>
+              <input
+                type="text"
+                placeholder="fees"
+                required
+                name="fees"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+        <tr>
+          <form action="/docprofilequali" method="post">
+            <td><span>Qualification</span></td>
+            <td>
+              <input
+                type="text"
+                placeholder="Qualification"
+                required
+                name="qualification"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+        <tr>
+          <form action="/docprofileexp" method="post">
+            <td><span>Experience</span></td>
+            <td>
+              <input
+                type="text"
+                placeholder="Experience"
+                required
+                name="experience"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+        <tr>
+          <form
+            action="/docprofileimg"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <td><span>Profile Image</span></td>
+            <td>
+              <input
+                type="file"
+                required
+                name="file"
+                id="image"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

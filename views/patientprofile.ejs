@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Consult</title>
+  </head>
+  <body onload="load()">
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="patienttable">
+      <h2>View profile</h2>
+      <table class="paatable">
+        <tr>
+          <td><span>Profile Image</span></td>
+          <td>
+            <img
+              src="./uploads/<%= pImage%>"
+              alt="profile img"
+              width="400"
+              height="400"
+            /><br />
+          </td>
+        </tr>
+        <tr>
+          <td><span>First Name</span></td>
+          <td><span><%= pfname %></span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Last Name</span></td>
+          <td><span> <%= plname %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Email</span></td>
+          <td><span> <%= pemail %> </span><br /></td>
+        </tr>
+        <tr>
+          <td><span>Mobile no</span></td>
+          <td><span> <%= pphone %> </span><br /></td>
+        </tr>
+      </table>
+      <h2>Update Profile</h2>
+      <table class="paatable">
+        <tr>
+          <form action="/patientphone" method="post">
+            <td><span>Mobile no</span></td>
+            <td>
+              <input
+                type="number"
+                placeholder="Phone no"
+                required
+                name="phone"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+        <tr>
+          <form
+            action="/patientprofileimg"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <td><span>Profile Image</span></td>
+            <td>
+              <input
+                type="file"
+                required
+                name="file"
+                id="image"
+                class="text-name"
+              />
+            </td>
+            <td><button type="submit">Update</button></td>
+          </form>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

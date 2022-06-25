@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ac73c8797e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Nearby Hospital</title>
+    <script type="text/javascript">
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+          console.log(lats, longs);
+        }
+      }
+      function showPosition(position) {
+        document.getElementById("lats").value = +position.coords.latitude;
+        document.getElementById("longs").value = +position.coords.longitude;
+      }
+      console.log("location");
+    </script>
+  </head>
+  <body onload="getLocation()">
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="tophomeintro">
+      <div class="intro">
+        <h1>Find nearest hospital</h1>
+        <h1>from your home <i class="fa-solid fa-house-chimney"></i></h1>
+        <!-- <p>A healthy life should be a habit, not a goal to achieve</p> -->
+        <p>A healthy life is best kind of life.</p>
+        <form action="/loc" method="post">
+          <input type="hidden" name="lats" id="lats" />
+          <input type="hidden" name="longs" id="longs" />
+          <button class="button button1" type="submit" name="subm" id="subm">
+            <h3>Find Hospital</h3>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="bmip">
+      <div class="bmi1">
+        <h1>Body Mass Index (BMI)</h1>
+        <h2>What is BMI?</h2>
+        <p>
+          Body Mass Index or BMI is a measure that is calculated from a person’s
+          height and weight.
+        </p>
+        <h2>Purpose for BMI</h2>
+        <p>
+          Its purpose is to measure the body fat ratio that can be healthy,
+          overweight, obese, and underweight according to the individual’s
+          height.
+        </p>
+        <h2>BMI Scale</h2>
+        <p>18.5 to 24.9 = healthy</p>
+        <p>25 to 29.9 = overweight</p>
+        <p>30 and above = obese</p>
+        <p>18.4 and under = underweight</p>
+        <h2>High BMI ratio</h2>
+        <p>
+          In general, the higher your BMI, the higher the risk of developing a
+          range of conditions linked with excess weight, including diabetes
+          arthritis liver disease several types of cancer (such as those of the
+          breast, colon, and prostate) high blood pressure (hypertension) high
+          cholesterol sleep apnea.
+        </p>
+      </div>
+      <div class="bmi2">
+        <form name="bmiForm" class="bmi">
+          <h1>BMI Calculator</h1>
+          <br />
+          <h2>Your Weight(kg):</h2>
+          <input
+            type="text"
+            name="weight"
+            size="10"
+            placeholder="Enter Weight"
+          /><br />
+          <h2>Your Height(cm):</h2>
+          <input
+            type="text"
+            name="height"
+            size="10"
+            placeholder="Enter Height"
+          /><br />
+          <input
+            type="button"
+            value="Calculate BMI"
+            onClick="calculateBmi()"
+          /><br />
+          <br />
+          <!-- <p>Your BMI:</p> -->
+          <input
+            type="text"
+            disabled
+            name="bmi"
+            size="4"
+            placeholder="Your BMI"
+          />&nbsp;&nbsp;&nbsp;
+          <!-- <p>This Means:</p> -->
+          <input
+            type="text"
+            disabled
+            name="meaning"
+            size="25"
+            placeholder="This means"
+          /><br />
+          <input type="reset" value="Reset" />
+        </form>
+      </div>
+    </div>
+    <script language="JavaScript">
+      function calculateBmi() {
+        var weight = document.bmiForm.weight.value;
+        var height = document.bmiForm.height.value;
+        if (weight > 0 && height > 0) {
+          var finalBmi = weight / (((height / 100) * height) / 100);
+          document.bmiForm.bmi.value = finalBmi;
+          if (finalBmi < 18.5) {
+            document.bmiForm.meaning.value = "That you are too thin.";
+          }
+          if (finalBmi > 18.5 && finalBmi < 25) {
+            document.bmiForm.meaning.value = "That you are healthy.";
+          }
+          if (finalBmi > 25) {
+            document.bmiForm.meaning.value = "That you have overweight.";
+          }
+        } else {
+          alert("Please Fill in everything correctly");
+        }
+      }
+    </script>
+  </body>
+</html>

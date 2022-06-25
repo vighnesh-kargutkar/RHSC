@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/ac73c8797e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/chat.css" />
+    <link rel="stylesheet" href="css/video.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ac73c8797e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://use.fontawesome.com/9f9434a18a.js"></script>
+    <script src="https://use.fontawesome.com/fe69e93b2e.js"></script>
+    <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <title>Chat</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="review-container">
+      <h2>Please give your review</h2>
+      <div class="chat-form-container">
+        <h3>Like</h3>
+        <button type="submit" class="btn">
+          <i class="fa-solid fa-thumbs-up"></i></button
+        >&nbsp;&nbsp;&nbsp;
+        <h3>Dislike</h3>
+        <button type="submit" class="btn">
+          <i class="fa-solid fa-thumbs-down"></i>
+        </button>
+      </div>
+      <div class="chat-form-container">
+        <form action="" method="post">
+          <input
+            id="msg"
+            type="text"
+            placeholder="Enter Message"
+            required
+            autocomplete="off"
+          />
+          <button type="submit" class="btn">submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

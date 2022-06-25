@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ac73c8797e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://your-site-or-cdn.com/fontawesome/v6.0.0/js/all.js"
+      data-auto-replace-svg="nest"
+    ></script>
+
+    <title>RHSC Oder Medicine</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img" />
+    </nav>
+    <div class="tableappdiv">
+      <table class="apptable">
+        <tr>
+          <th>Medicine</th>
+          <th>Price</th>
+          <th>Oder Now</th>
+        </tr>
+        <tr>
+          <form action="/odermed" target="_blank" method="post">
+            <td><%= usermail.eprescription %></td>
+            <td><%= usermail.medprice %></td>
+            <td>
+              <button
+                type="submit"
+                id="video-btn"
+                target="_blank"
+                class="consultbtn"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </td>
+          </form>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

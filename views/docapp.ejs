@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/dochome.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Doctor Appointment</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/dochome">Home</a></li>
+        <li class="item"><a href="/docapp">Appointment</a></li>
+        <li class="item"><a href="/docprofile">Dr.<%= DocterFirstname %></a></li>
+      </ul>
+      <img src="./uploads/<%= DocterImage%>" alt="profile img" />
+    </nav>
+    <div>
+      <div class="tables">
+        <h2>Upcoming Appointment</h2>
+        <table class="apptable">
+          <tr>
+            <th>Patient name</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+          <form action="/chatdoc" >
+          <% Upcomingapp.forEach(function(dat){ %>
+          <tr>
+            <td><%= dat.pfname %>&nbsp;<%= dat.plname %></td>
+            <td><%= dat.date %></td>
+            <td><%= dat.time %></td>
+              <input type="hidden" name="username" id="username" value="<%= DocterFirstname%>" />
+              <input type="hidden" name="room" id="room" value="Dr.<%= DocterFirstname %>" />
+            </form>
+            <% })%>
+          </tr>
+        </table>
+        <h2>History Appointment</h2>
+        <table class="apptable">
+          <tr>
+            <th>Patient name</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+          <form action="/chatdoc" >
+          <% appHistory.forEach(function(dat){ %>
+          <tr>
+            <td><%= dat.pfname %>&nbsp;<%= dat.plname %></td>
+            <td><%= dat.date %></td>
+            <td><%= dat.time %></td>
+              <input type="hidden" name="username" id="username" value="<%= DocterFirstname%>" />
+              <input type="hidden" name="room" id="room" value="Dr.<%= DocterFirstname %>" />
+            </form>
+            <% })%>
+          </tr>
+        </table>
+        </div>
+  </body>
+</html>

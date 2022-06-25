@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Consult</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img">
+    </nav>
+    <div class="consultslidebk">
+      <h1 id="med3">Select Type of Doctor</h1>
+    <div class="main">
+      <div class="card">
+        <div class="image">
+          <img src="images/gynaecologist.jpg" />
+        </div>
+        <div class="title">
+          <form action="/conGynaecologist">
+          <button>
+            <h1>
+              Gynaecologist
+            </h1>
+          </button>
+            <p>
+                A gynecologist is a doctor who specializes in women's reproductive health. Obstetricians care for women during their pregnancy and just after the baby is born; they also deliver babies.</p>
+        </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="images/physician.jpg" />
+        </div>
+        <div class="title">
+          <form action="/conPhysician">
+
+            <button>
+              <h1>Physician</h1>
+            </button>
+            <p> A physician is a person who has general information about the illnesses of the body.
+            If you suffer from any pain in your body, you should firstly go to your physician. Your physician is the first point of contact.</p>
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="images/Dermatologist.jpg" />
+        </div>
+        <div class="title">
+          <form action="/conDermatologist">
+
+            <button>
+              <h1>Dermatologist</h1>
+            </button>
+            <p>A dermatologist is a doctor who specializes in conditions involving the skin, hair, and nails. 
+          These conditions include eczema, psoriasis, and skin cancer, among many others.
+          </p> 
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="images/Psychiatrist.jpg" />
+        </div>
+        <div class="title">
+          <form action="/conPsychiatrist">
+            <button>
+                <h1>Psychiatrist</h1>
+            </form>
+          </button>
+          <p> A psychiatrist is a medical doctor who specializes in mental health, including substance use disorders.
+             There are numerous causes, such as stress, of mental health issues. Its cause, and treatment options.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="images/Paediatrician.jpg" />
+        </div>
+        <div class="title">
+          <form action="/conPaediatrician">
+          <button>
+                <h1>Paediatrician</h1>
+            </button>
+            <p>A pediatrician is a child physician who provides medical care for children, who have an acute or chronic illness and also preventive measures for healthy growth and development. 
+          They manage physical, mental, and emotional well-being of the children.</p> 
+          </form>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="images/Gastroentrology.jpg" />
+        </div>
+        <div class="title">
+          <form action="/Gastroenterologist">
+            <button>
+                <h1>Gastroenterologist</h1>
+            </button>
+            <p>Gastroenterology is the study of the normal function and diseases of the esophagus, stomach, small intestine, pancreas, gallbladder and liver.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div>
+      <!-- <h1 id="med3">your Appointment</h1> -->
+      <div class="tableappdiv">
+        <h2>Live Appointment</h2>
+        <table class="apptable">
+          <tr>
+            <th>Doctor name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Fees</th>
+            <th>Join Appoinment</th>
+          </tr>
+          <form action="/chat" >
+          <% live.forEach(function(dat){ %>
+          <tr>
+            <td><%= dat.docfname %>&nbsp;<%= dat.doclname %></td>
+            <td><%= dat.date %></td>
+            <td><%= dat.time %></td>
+            <td><%= dat.fees %></td>
+            <td>
+              <button type="submit" class="consultbtn" id="submit">
+                <h3>
+                  Join Appointment
+                </h3>
+              </button>
+            </td>
+              <input
+                type="hidden"
+                name="username"
+                id="username"
+                value="<%= pfname%>"
+              />
+              <input
+                type="hidden"
+                name="room"
+                id="room"
+                value="Dr.<%= dat.docfname %>"
+              />
+              <input
+                type="text"
+                name="fees"
+                id="fees"
+                value="<%= dat.fees%>"
+                style="display: none;"
+              />
+              <input
+                type="text"
+                name="date"
+                id="date"
+                value="<%= dat.date%>"
+                style="display: none;"
+              />
+              <input
+                type="text"
+                name="time"
+                id="time"
+                value="<%= dat.time%>"
+                style="display: none;"
+              />
+            </form>
+            <% })%>
+          </tr>
+        </table>
+        <h2>Upcoming Appointment</h2>
+        <table class="apptable">
+          <tr>
+            <th>Doctor name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <!-- <th>Cancel</th> -->
+          </tr>
+          <!-- <form action="/deleteapp"> -->
+          <% upcomingapp.forEach(function(dat){ %>
+          <tr>
+            <td><%= dat.docfname %>&nbsp;<%= dat.doclname %></td>
+            <td><%= dat.date %></td>
+            <td><%= dat.time %></td>
+            <!-- <td><button type="submit" class="consultbtn" id="submit">
+                Delete
+              </button></td> -->
+          <!-- </form> -->
+            <% })%>
+          </tr>
+        </table>
+        <h2>Appointment History</h2>
+        <table class="apptable">
+          <tr>
+            <th>Doctor name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>E-prescription</th>
+          </tr>
+          <% checkapp.forEach(function(dat){ %>
+          <tr>
+            <td><%= dat.docfname %>&nbsp;<%= dat.doclname %></td>
+            <td><%= dat.date %></td>
+            <td><%= dat.time %></td>
+            <form action="/geteprescription" method="post" target="_blank" >
+              <td><button class="consultbtn">E-prescription</button></td>
+            </form>
+            <% })%>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="docter">
+      <% result.forEach(function(dat){ %>
+      <div class="doccard">
+        <div class="docimg">
+          <img src="./uploads/<%= dat.image %>" alt="" />
+        </div>
+        <div class="docdata">
+          <h2 name="room">Dr.<%= dat.firstname %></h2>
+          <p><%= dat.doctertype %></p>
+          <p><%= dat.qualification %></p>
+          <p>Experience <%= dat.experience %> years</p>
+          <p>Fees : <%= dat.fees %></p>
+
+          <form action="/bookapp" method="post">
+            <input
+              type="hidden"
+              name="doctertype"
+              value="<%= dat.doctertype %>"
+            />
+            <input type="hidden" name="email" value="<%= dat.email %>" />
+            <input
+              type="hidden"
+              name="firstname"
+              value="<%= dat.firstname %>"
+            />
+            <button>
+              <h3>
+                Book Appointment
+              </h3>
+            </button>
+          </form>
+
+          
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </body>
+</html>

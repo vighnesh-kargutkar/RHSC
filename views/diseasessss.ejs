@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <title>Disease</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div id="logo">Real-Time <br />Health Care</div>
+      <ul>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/consult">Consult</a></li>
+        <li class="item"><a href="/medicine">Medicine</a></li>
+        <li class="item"><a href="/disease">Disease</a></li>
+        <li class="item"><a href="/nearby">Nearby Hospital</a></li>
+        <li class="item"><a href="/patientprofile"> <%= pfname%> </a></li>
+      </ul>
+      <img src="./uploads/<%= pImage%>" alt="profile img">
+    </nav>
+
+    <div>
+      <h1 id="med3">Disease information</h1>
+    </div>
+
+    <div id="md1">
+      <div id="md2">
+        <% result.forEach(function(name){ %>
+          <h2>name</h2>
+          <p><%= name.name %></p><br><br>
+          <h2>overview</h2>
+          <p><%= name.overview %></p><br>
+          <h2>type</h2>
+          <p><%= name.type %></p><br>
+          <h2>symptoms</h2>
+          <p><%= name.symptoms %></p><br>
+          <h2>Causes</h2>
+          <p><%= name.Causes %></p><br>
+          <h2>Riskfactors</h2>
+          <p><%= name.Riskfactors %></p><br>
+          <h2>Prevention</h2>
+          <p><%= name.Prevention %></p><br>
+          <h2>Diagnosis</h2>
+          <p><%= name.Diagnosis %></p><br>
+          <h2>Treatment</h2>
+          <p><%= name.Treatment %></p><br>
+          <h2>Alternativemedicine</h2>
+          <p><%= name.Alternativemedicine %></p><br>
+        </tr>
+        <% })%>
+      </div>
+    </div>
+    <script>
+      $(function(){
+        $("#sb1").autocomplete({
+        source: function(req,res){
+          $.ajax({
+            url:"/autocomplete",
+            dataType:"jsonp",
+            type:"GET",
+            data:req,
+            success:function(data){
+              res(data)
+            },
+            error:function(err){
+              console.log(err.status);
+            }
+          });
+        },
+        minLength:1,
+        select:function(event,ui){
+          if(ui.item){
+            $('#sb1').text(ui.item.label);
+          }
+        }
+      });
+
+      })
+    </script>
+  </body>
+</html>

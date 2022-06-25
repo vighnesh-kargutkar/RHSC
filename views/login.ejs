@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Login Form Design</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <body>
+      <div class="loginbox">
+        <img src="images/avatar.jpg" class="avatar" />
+        <h1>Login Here</h1>
+        <form action="/login" method="post">
+          <% if(typeof alert != 'undefined') { %>
+          <%alert.forEach(function(error) { %>
+          <h3 style="color: red; font-weight: lighter">
+            <% if(error.param=="type"){ %> <%= error.msg %><%}%>
+          </h3>
+          <% }) %> <% } %>
+          <p>Type</p>
+          <select id="type" name="type">
+            <option></option>
+            <option type="Patient">Patient</option>
+            <option typr="Doctor">Doctor</option>
+          </select>
+          <% if(typeof alert != 'undefined') { %>
+          <%alert.forEach(function(error) { %>
+          <h3 style="color: red; font-weight: lighter">
+            <% if(error.param=="email"){ %> <%= error.msg %><%}%>
+          </h3>
+          <% }) %> <% } %>
+          <p>Email</p>
+          <input type="email" name="email" placeholder="Enter User email" />
+          <!-- <p>Phone no</p>
+          <input type="number" name="phone" placeholder="Enter User phone no" /> -->
+          <% if(typeof alert != 'undefined') { %>
+          <%alert.forEach(function(error) { %>
+          <h3 style="color: red; font-weight: lighter">
+            <% if(error.param=="password"){ %> <%= error.msg %><%}%>
+          </h3>
+          <% }) %> <% } %>
+          <p>Password</p>
+          <input type="password" name="password" placeholder="Enter Password" />
+          <input type="submit" name="" value="Login" />
+          <!-- <a href="#"> Forget Password?</a></br>
+            <a href="#"> Don't have an account?</a></br> -->
+          <a href="/register">
+            <input class="button" value="register" />
+          </a>
+        </form>
+      </div>
+    </body>
+  </head>
+</html>
